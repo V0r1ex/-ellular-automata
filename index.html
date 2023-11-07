@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клеточные автоматы</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Клеточные автоматы</h1>
+    </header>
+    <main class="main">
+        <div class="canvas__container">
+            <canvas id="canvas" width="800" height="800" onclick="aliveCell(event)"></canvas>
+        </div>
+        <div class="menu">
+            <div class="menu__field">
+                <label for="speed">Скорость анимации:</label>
+                <input type="text" name="speed" onchange="setSpeed(this)">
+            </div>
+            <div class="menu__field">
+                <label for="rule">Конфигурация:</label>
+                <label for="rule1">B:</label>
+                <input type="text" name="rule1" placeholder="012345678" onchange="setRuleB(this)">
+                <label for="rule2">/ S:</label>
+                <input type="text" name="rule2" placeholder="012345678" onchange="setRuleS(this)">
+            </div>
+            <div class="menu__field">
+                <label for="size">Размер сетки:</label>
+                <input type="text" name="size" onchange="setSize(this)">
+            </div>
+            <div class="menu__field">
+                <label for="density">Плотность частиц:</label>
+                <input type="text" name="density" placeholder="0-100" onchange="setDensity(this)">
+            </div>
+            <div class="menu__field">
+                <button onclick="downloadImage()">Скачать canvas</button>
+            </div>
+            <div class="menu__field">
+                <button onclick="generateGrid()">Генерировать</button>
+            </div>
+        </div>
+    </main>
+    <button class="play-btn" onclick="play()">Play</button>
+    <script src="script.js"></script>
+</body>
+</html>
