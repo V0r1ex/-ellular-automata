@@ -15,7 +15,7 @@ body {
 }
 
 .main {
-    padding: 0 20px;
+    padding: 0 20px 50px 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
@@ -23,11 +23,17 @@ body {
     width: 100%;
 }
 
+.info {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
 h1 {
     text-align: center;
 }
 
-button {
+.base-btn {
     border: 2px solid black;
     background-color: transparent;
     padding: 10px;
@@ -35,23 +41,133 @@ button {
     font-size: 16px;
 }
 
-.play-btn {
-    width: 100px;
+input[type="text"] {
+    height: 30px;
+} 
+
+.menu {
+    flex-grow: 1;
+}
+
+.save-menu {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background-color: #fff;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.saves-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+.saves {
+    margin-bottom: 20px;
+    overflow: auto;
+    max-height: 75%;
+}
+.save {
+    cursor: pointer;
+    border: 2px solid transparent;
+    padding: 10px 10px;
+    margin-bottom: 5px;
+}
+
+.save-title {
+    width: fit-content;
+    padding: 5px;
+}
+
+.save:hover, .save__picked {
+    border-color: black;
+}
+
+.saves-btns {
+    display: flex;
+    justify-content: space-around;
+}
+
+.center-btns {
     position: fixed;
     bottom: 0;
     left: 50%;
-    transform: translate(0, -50%);
+    transform: translate(-50%, -10px);
+    width: 300px;
 }
 
-.menu__field {
+.play-btn, .step-btn {
+    width: 100px;
+}
+
+.menu-field {
     width: 100%;
     display: flex;
+    align-items: center;
     gap: 10px;
     border-bottom: 2px solid black;
     padding: 20px 0;
 }
 
-input {
+.menu-field__generations {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.generations-container {
+    display: flex;
+    gap: 10px;
+}
+
+.generation-btns {
+    width: 100%;
+}
+
+.generation-btn {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 4px 10px;
+    text-align: left;
+    font-size: 18px;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.generation-btn:hover, .generation-btn__selected {
+    border-color: black;
+}
+
+.colors-container {
+    margin-left: 50px;
+}
+
+.color-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.color-input {
+    height: 50px;
+    width: 48px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.color-input::-webkit-color-swatch{
+    border: 2px solid #000000;
+    border-radius: 5px;
+}
+
+
+input[type="text"] {
     width: 200px;
     border: 2px solid black;
     outline: none;

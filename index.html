@@ -5,44 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Клеточные автоматы</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="resources/icon.jpg">
 </head>
 <body>
     <header class="header">
         <h1>Клеточные автоматы</h1>
     </header>
     <main class="main">
-        <div class="canvas__container">
+        <div class="canvas-container">
             <canvas id="canvas" width="800" height="800" onclick="aliveCell(event)"></canvas>
+            <div class="info">
+                <div class="info-parametr">Ход: <span class="counter-steps">0</span></div>
+                <div class="info-parametr">Живых клеток: <span class="counter-alive-cells">0</span></div>
+            </div>
         </div>
         <div class="menu">
-            <div class="menu__field">
+            <div class="menu-field">
+                <label for="color">Цвет поля:</label>
+                <input type="color" name="color" value="#ffffff" class="color-input" onchange="setBgColor(this)"">
+            </div>
+            <div class="menu-field">
                 <label for="speed">Скорость анимации:</label>
                 <input type="text" name="speed" onchange="setSpeed(this)">
             </div>
-            <div class="menu__field">
+            <div class="menu-field">
                 <label for="rule">Конфигурация:</label>
                 <label for="rule1">B:</label>
                 <input type="text" name="rule1" placeholder="012345678" onchange="setRuleB(this)">
                 <label for="rule2">/ S:</label>
                 <input type="text" name="rule2" placeholder="012345678" onchange="setRuleS(this)">
             </div>
-            <div class="menu__field">
+            <div class="menu-field menu-field__generations">
+                <div class="generations-container">
+                    <label for="rule">Поколения:</label>
+                    <input type="text" name="generations" placeholder=">1" onchange="setGenerations(this)">
+                    <div class="colors-container">
+                        <div class="color-container">
+                            <label>Цвет клеток: </label>
+                            <input type="color" class="color-input" onchange="setGenerationColor(this)" number="1">
+                        </div>
+                        <div>Нет поколений</div>
+                    </div>
+                </div>
+                <div class="generation-btns">
+                    <button class="generation-btn generation-btn__selected" mode="1" onclick="setMode(this)">Клетки стареют, когда достаточно соседей</button>
+                    <button class="generation-btn" mode="2" onclick="setMode(this)">Клетки стареют, когда недостаточно или избыточно соседей</button>
+                </div>
+            </div>
+            <div class="menu-field">
                 <label for="size">Размер сетки:</label>
                 <input type="text" name="size" onchange="setSize(this)">
             </div>
-            <div class="menu__field">
+            <div class="menu-field">
                 <label for="density">Плотность частиц:</label>
                 <input type="text" name="density" placeholder="0-100" onchange="setDensity(this)">
             </div>
-            <div class="menu__field">
-                <button onclick="downloadImage()">Скачать canvas</button>
+            <div class="menu-field">
+                <button onclick="downloadImage()" class="base-btn">Скачать canvas</button>
             </div>
-            <div class="menu__field">
-                <button onclick="generateGrid()">Генерировать</button>
+            <div class="menu-field">
+                <button onclick="generateGrid()" class="base-btn">Генерировать</button>
             </div>
         </div>
     </main>
-    <button class="play-btn" onclick="play()">Play</button>
+    <div class="center-btns">
+        <button class="play-btn base-btn" onclick="play()">Play</button>
+        <button class="step-btn base-btn" onclick="step()">Step</button>
+        <button class="save-menu-btn base-btn" onclick="openSavesWindow()">Saves</button>
+    </div>
     <script src="script.js"></script>
+    <script src="storage.js"></script>
 </body>
 </html>
